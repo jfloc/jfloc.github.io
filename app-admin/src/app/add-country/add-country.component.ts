@@ -1,5 +1,7 @@
-import { Component, OnInit } from "@angular/core";
-import { CountryService } from "../country.service";
+import { Component } from "@angular/core";
+import { CountryService } from "../services/countrydata.service";
+import { Router } from "@angular/router";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: "app-add-country",
@@ -7,15 +9,31 @@ import { CountryService } from "../country.service";
   styleUrls: ["./add-country.component.css"],
 })
 export class AddCountryComponent {
-  countryName = "";
+  addForm: FormGroup;
+  submitted = false;
 
-  constructor(private countryService: CountryService) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private countryService: CountryService,
+    private router: Router
+  ) {}
 
-  addCountry(): void {
-    if (this.countryName.trim()) {
+  ngOnInit() {
+    this.addForm = this.formBuilder.group({
+      _id: [],
+      name: ["", Validators.required],
+    });
+  }
+
+  addCountry() {
+    this.submitted = true;
+    if (this.addForm.valid) {
       this.countryService
-        .addCountry({ name: this.countryName })
-        .subscribe(() => {});
+        .addCountry({ name: this.addForm.value })
+        .then((data) => {
+          console.log(data);
+          this.router.navigate([""]);
+        });
     }
   }
 }
