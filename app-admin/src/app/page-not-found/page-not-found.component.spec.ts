@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddCountryComponent } from './add-country.component';
+import { PageNotFoundComponent } from './page-not-found.component';
 
-describe('AddCountryComponent', () => {
-  let component: AddCountryComponent;
-  let fixture: ComponentFixture<AddCountryComponent>;
+describe('PageNotFoundComponent', () => {
+  let component: PageNotFoundComponent;
+  let fixture: ComponentFixture<PageNotFoundComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AddCountryComponent]
+      imports: [PageNotFoundComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(AddCountryComponent);
+    fixture = TestBed.createComponent(PageNotFoundComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

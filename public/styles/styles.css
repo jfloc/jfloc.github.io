@@ -1,3 +1,12 @@
+/*
+// Author: Joshua Flores
+// Email: joshua.flores3@snhu.edu
+// Date: 02/05/2024
+// Version: 0.1.0 
+// Purpose: Provides the basic styling for all pages in current version 0.1.0
+*/
+
+/*Copyright available in the public folder for the following fonts*/
 @font-face {
   font-family: "Macondo-Regular";
   src: url("./fonts/Macondo-Regular.ttf") format("truetype");
@@ -13,12 +22,14 @@
   src: url("./fonts/Rosarivo-Regular.ttf") format("truetype");
 }
 
+/*Extending the entire html page to all sides of the display viewport*/
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/*Setting body background color and full visibilty of the viewport*/
 body {
   background-color: rgb(204, 203, 202);
   min-height: 100vh;
@@ -39,7 +50,7 @@ body {
   max-width: 1500px;
   width: 100%;
 }
-
+/*Used to ensure no overlapping of items when using display:flex*/
 .clearfix::after {
   content: "";
   display: table;
@@ -58,7 +69,7 @@ header {
 }
 .header-image {
   position: relative;
-  width: 100%; /* Set the width of the container to 100% */
+  width: 100%;
   padding-top: 0%;
   margin: 0%;
   background-image: url(../images/japan.svg);
@@ -89,7 +100,7 @@ nav {
   font-family: "Rosarivo-Regular", sans-serif;
   letter-spacing: 0.25em;
   background-color: #0094ff;
-  /*box-shadow: 0px 10px 5px rgb(174, 183, 186);*/
+
   z-index: 50;
 }
 
@@ -128,7 +139,7 @@ h2 {
   text-shadow: 2px 2px 4px rgb(0, 0, 0);
   color: rgb(255, 255, 255);
 }
-
+/*The following is for ensuring both the welcome message as well as the nav bar items are within the grid-column range of 1200px max*/
 .menu_bar,
 .welcome_message_container {
   max-width: 1200px;
@@ -152,21 +163,9 @@ h2 {
   height: 75%;
   max-width: 1200px;
 
-  /*
-  
-  position: absolute;
-  font-size: 1rem;
-  
-  
-  width: 100%;
-  
-  */
   font-family: "Macondo-Regular", cursive;
 }
-/*
-.top_story {
-}
-*/
+
 .welcome_message {
   width: 100%;
   float: left;
@@ -190,7 +189,7 @@ h2 {
   top: 60%;
   float: left;
 }
-
+/*This #logo styling attempts to fit the logo within the navbar and ensure that it scales whenever zoom in or out and avoids using absolute*/
 #logo {
   max-width: 100%;
   grid-column: span 1;
@@ -307,6 +306,8 @@ h3 {
   border-bottom-left-radius: 15px;
 }
 
+/* The following below set the styling for the contact form in the home page*/
+
 .contact {
   box-sizing: border-box;
   grid-column: span 12;
@@ -356,7 +357,6 @@ textarea:focus {
   outline: none;
   box-shadow: 0 0 8px #0a0a0a;
 }
-
 button {
   display: inline-block;
   padding: 0.75em 1.5em;

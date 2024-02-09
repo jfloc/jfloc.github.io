@@ -1,3 +1,10 @@
+/*
+// Author: Joshua Flores
+// Email: joshua.flores3@snhu.edu
+// Date: 02/05/2024
+// Version: 0.1.0 
+// Purpose: Currently implemented to provide basic styling to the news page countries listed
+*/
 main {
   position: flex;
   display: grid;
@@ -9,6 +16,7 @@ main {
   margin: 100px auto;
 }
 
+/* Creates a square grid template for the cards holding each country */
 .travel_news {
   margin: 0px auto;
   display: inherit;
@@ -22,6 +30,7 @@ main {
   border-width: 10px;
 }
 
+/* This separates the larger div travel_news from the separate articles by adding background color differentiation */
 article {
   grid-column: span 4;
   padding: 10px;

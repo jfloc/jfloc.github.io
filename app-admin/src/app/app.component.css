@@ -1,0 +1,51 @@
+.container ::ng-deep3 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: auto;
+}
+main {
+  display: flex;
+  grid-column: span 12;
+  width: 100%;
+  height: fit-content;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15%;
+  margin-bottom: 10%;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-column: span 12;
+}
+
+main > *::ng-deep3 {
+  grid-column: span 12;
+}
+
+ul {
+  width: 50%;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  list-style: none;
+}
+li {
+  text-align: center;
+  grid-column: span 4;
+}
+
+router-outlet {
+  position: absolute;
+  grid-column: span 12;
+  align-items: center;
+}
+
+div {
+  justify-content: center;
+  align-items: center;
+}

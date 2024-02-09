@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+body,
+app-root {
+  width: 100%;
+  height: fit-content;
+  margin: 0 auto;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+app-root {
+  grid-column: span 12;
+}

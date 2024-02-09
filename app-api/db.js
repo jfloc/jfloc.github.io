@@ -1,3 +1,17 @@
+// Author: Joshua Flores
+// Email: joshua.flores3@snhu.edu
+// Date: 02/05/2024
+// Version: 0.1.0
+
+/* 
+  This file was carried over from the artifact however setting of useNewUrlParser and other settings were removed since depreciation from Node.js Driver version 4.0.0
+  Purpose: This file connects the api to the database travlr_db
+           It uses setTimeout for connecting to the mongodb, followed by providing logging for the states of
+           connection to the database from connected, error, disconnected.
+           It also provides some error handling as well as ensuring current processes for win32 platform
+
+*/
+
 const mongoose = require("mongoose");
 const host = process.env.DB_HOST || "127.0.0.1";
 let dbURL = `mongodb://${host}/travlr_db`;
