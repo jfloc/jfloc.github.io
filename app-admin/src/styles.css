@@ -1,10 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "Macondo-Regular";
+  src: url("./app/public/styles/fonts/Macondo-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Rosarivo-Italic";
+  src: url("./app/public/styles/fonts/Rosarivo-Italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Rosarivo-Regular";
+  src: url("./app/public/styles/fonts/Rosarivo-Regular.ttf") format("truetype");
+}
+
+/*Extending the entire html page to all sides of the display viewport*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  width: 100%;
+  background-color: rgb(204, 203, 202);
+  min-height: 100%;
+}
+
 body,
 app-root {
   width: 100%;
   height: fit-content;
   margin: 0 auto;
-  max-width: 1200px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
 }

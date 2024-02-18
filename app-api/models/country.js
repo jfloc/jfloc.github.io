@@ -7,8 +7,10 @@
 const mongoose = require("mongoose");
 
 const countrySchema = new mongoose.Schema({
+  code: { type: String, required: true },
   name: {
     type: String,
+    required: true,
     unique: true,
   },
 });
@@ -16,12 +18,11 @@ const countrySchema = new mongoose.Schema({
 /* Running a pre hook before saving to ensure in cases of concurrent saves into data or direct access of data through the mongosh that the country is actually unique */
 countrySchema.pre("save", async function (next) {
   const existingCountry = await this.constructor.findOne({ name: this.name });
-
+  console.log(existingCountry);
   if (existingCountry) {
-    const err = new Error("Country already exists");
-    next(err);
+    return next(new Error("Country already exists"));
   } else {
-    next();
+    return next();
   }
 });
 

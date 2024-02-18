@@ -1,0 +1,98 @@
+/*
+// Author: Joshua Flores
+// Email: joshua.flores3@snhu.edu
+// Date: 02/05/2024
+// Version: 0.1.0 
+// Purpose: Currently implemented to provide basic styling to the news page countries listed
+*/
+
+:host {
+  grid-column: span 12;
+  height: 100%;
+  width: 100%;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  top: 0%;
+  max-width: 1200px;
+  width: 100%;
+  left: 0%;
+  margin: 100px auto;
+}
+
+/* Creates a square grid template for the cards holding each country */
+.travel_news {
+  margin: 0px auto;
+  display: inherit;
+  grid-template-columns: repeat(12, 1fr);
+  grid-column: span 12;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  border-style: outset;
+  border-radius: 15px;
+  border-color: rgb(219, 209, 209);
+  border-width: 10px;
+}
+
+/* This separates the larger div travel_news from the separate articles by adding background color differentiation */
+article {
+  grid-column: span 4;
+  padding: 10px;
+  margin: 10px;
+  background-color: rgb(59, 57, 53);
+}
+
+h2 {
+  font-family: "Rosarivo-Regular";
+  font-size: 2em;
+  padding: 1em 0;
+  letter-spacing: 0.25em;
+  text-shadow: 2px 2px 4px rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  display: block;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.filter_bar {
+  display: flex;
+  left: 0;
+  bottom: 0;
+  align-items: left;
+  float: left;
+  max-width: fit-content;
+  margin: 10px auto 0px auto;
+  grid-column: span 1;
+}
+
+button {
+  margin-right: 20px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  width: max-content;
+}
+
+.overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  grid-column: span 12;
+  margin: 0px auto;
+  width: 35%;
+  height: 65%;
+  background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black */
+  z-index: 999; /* ensure the overlay appears on top of other content */
+}
+
+form {
+  width: 80%;
+  height: 80%;
+  background-color: white;
+}

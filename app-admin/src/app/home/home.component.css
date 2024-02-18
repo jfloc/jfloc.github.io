@@ -1,0 +1,220 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: auto;
+  place-items: center;
+  height: auto;
+  width: 100%;
+}
+
+:host {
+  grid-column: span 12;
+}
+
+.trip_image {
+  width: 100%;
+  height: max-content;
+  grid-column: span 6;
+}
+
+.leftside_image {
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+.rightside_image {
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.top_story {
+  position: relative;
+  grid-column: span 12;
+  width: 95%;
+}
+
+.trip_desc {
+  color: white;
+  padding: 0 4em;
+  grid-column: span 6;
+}
+article {
+  background-color: #4d8bb8;
+  margin-bottom: 5em;
+  border-radius: 15px;
+  grid-column: span 12;
+}
+
+label {
+  position: absolute;
+}
+.news_stories {
+  text-align: center;
+  margin: 10px auto;
+  border-radius: 45px;
+  min-height: 50%;
+}
+
+h2 {
+  font-family: "Rosarivo-Regular", sans-serif;
+  font-size: 2em;
+  grid-column: span 12;
+  padding: 1em 0;
+  letter-spacing: 0.25em;
+  text-shadow: 2px 2px 4px rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+}
+
+#Trip1,
+#Trip2,
+#Trip3,
+.about_us_desc,
+h3 {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: xx-large;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+}
+
+#Trip1,
+#Trip3 {
+  top: 10%;
+  right: 10%;
+}
+
+#Trip2 {
+  top: 10%;
+  left: 10%;
+}
+.about_us_container {
+  display: grid;
+  gap: 0.02%;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  place-items: center;
+  grid-column: span 12;
+  background-color: #4d8bb8;
+}
+
+.about_us_desc {
+  text-align: left;
+  font-size: large;
+  word-spacing: 5px;
+  letter-spacing: 2px;
+  text-decoration: double;
+  width: 75%;
+  grid-column: span 8;
+  grid-row: span 3;
+  line-height: 1.5;
+  padding: 20px 10px 20px 0;
+}
+
+#office_img {
+  grid-column: span 4;
+  grid-row: span 3;
+  width: 100%;
+  height: 100%;
+  left: 3.5%;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+/* The following below set the styling for the contact form in the home page*/
+
+.contact {
+  box-sizing: border-box;
+  grid-column: span 12;
+  min-height: 10vh;
+  text-align: center;
+}
+
+.contact-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contact-container h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+}
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 30px;
+}
+.contact-form {
+  text-align: left;
+}
+
+.contact-form h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.form-group {
+  margin-bottom: 1em;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.75em;
+  border-radius: 8px;
+  border: none;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 8px #0a0a0a;
+}
+
+button {
+  display: inline-block;
+  padding: 0.75em 1.5em;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 15px;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.contact-information {
+  text-align: left;
+}
+
+.contact-information h3 {
+  font-size: 24px;
+  margin-bottom: 1.25em;
+}
+
+.contact-information p {
+  margin-bottom: 0.6em;
+}
+
+.contact-information i {
+  color: #4caf50;
+  margin-right: 0.62em;
+}
+
+@media screen and (max-width: 768px) {
+  .contact-container {
+    padding: 1.25em;
+  }
+
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+  }
+}

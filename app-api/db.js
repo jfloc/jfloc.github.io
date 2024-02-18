@@ -75,4 +75,6 @@ process.on("SIGTERM", () => {
   });
 });
 
+require("./models/country");
+require("./models/users");
 module.exports = connect;

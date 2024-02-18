@@ -1,33 +1,47 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Inject, Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Country } from '../models/country';
-import { catchError } from 'rxjs/operators';
-import { throwError } from 'rxjs';
+import { BROWSER_STORAGE } from '../storage';
+import { Observable, catchError, firstValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CountryService {
-  private apiUrl = 'http://localhost:3000/api/countries';
+  constructor(
+    private http: HttpClient,
+    @Inject(BROWSER_STORAGE) private storage: Storage
+  ) {}
 
-  constructor(private http: HttpClient) {}
+  private apiBaseUrl = 'http://localhost:3000/api';
+  private countryUrl = `${this.apiBaseUrl}/country/`;
 
-  public getCountries(): Promise<Country[]> {
+  public getCountries(): Observable<Country[]> {
     return this.http
-      .get<Country[]>(this.apiUrl)
-      .toPromise()
-      .catch(this.handleError);
+      .get<Country[]>(this.countryUrl)
+      .pipe(catchError(this.handleError));
   }
 
-  public addCountry(formData: Country): Promise<Country> {
+  public addCountry(formData: Country): Observable<Country> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${this.storage.getItem('travlr-token')}`,
+      }),
+    };
+
+    console.log(
+      'country token is ',
+      httpOptions['headers'].get('Authorization')
+    );
+
+    console.log(formData);
     return this.http
-      .post<Country>(this.apiUrl, formData)
-      .toPromise()
-      .catch(this.handleError);
+      .post<Country>(this.countryUrl, formData, httpOptions)
+      .pipe(catchError(this.handleError));
   }
 
-  private handleError(error: any): Promise<any> {
+  private handleError(error: any): Observable<never> {
     console.error('An error occurred:', error);
-    return Promise.reject(error.message || error);
+    throw error; // You might choose to throw the error or handle it differently
   }
 }

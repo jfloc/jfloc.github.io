@@ -1,51 +1,223 @@
-.container ::ng-deep3 {
+@font-face {
+  font-family: "Macondo-Regular";
+  src: url("../assets/styles/fonts/Macondo-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Rosarivo-Italic";
+  src: url("../assets/styles/fonts/Rosarivo-Italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Rosarivo-Regular";
+  src: url("../assets/styles/fonts/Macondo-Regular.ttf") format("truetype");
+}
+
+.container {
   display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: auto;
+  place-items: center;
+  height: auto;
+  width: 100%;
+}
+
+.component-container {
+  display: inherit;
   grid-template-columns: repeat(12, 1fr);
   max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   padding: auto;
+  place-items: center;
+  height: fit-content;
+  width: 100%;
 }
-main {
-  display: flex;
+
+.navbar-container {
+  place-items: center;
+  max-width: 1500px;
+  width: 100%;
+}
+
+/*Used to ensure no overlapping of items when using display:flex*/
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+ul > li {
+  list-style: none;
+  align-items: center;
+}
+
+header {
   grid-column: span 12;
   width: 100%;
+  margin: 0%;
+  padding: 0%;
+}
+.header-image {
+  grid-column: span 12;
+  position: relative;
+  width: 100%;
+  padding-top: 0%;
+  margin: 0%;
+  background-image: url(../assets/images/japan.svg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.header-image::before {
+  content: "";
+  display: block;
+  padding-top: 25.55%;
+}
+
+h1 {
+  margin: auto;
+  padding: auto;
   height: fit-content;
-  justify-content: center;
-  align-items: center;
-  margin-top: 15%;
-  margin-bottom: 10%;
+  width: fit-content;
+  width: -moz-fit-content;
+  display: flex;
 }
 
 nav {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   grid-column: span 12;
+  margin: 0 auto;
+  height: auto;
+  position: relative;
+  width: 100%;
+  font-family: "Rosarivo-Regular", sans-serif;
+  letter-spacing: 0.25em;
+  background-color: #0094ff;
+  z-index: 50;
 }
 
-main > *::ng-deep3 {
-  grid-column: span 12;
+a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  text-shadow: 2px 2px 2px rgb(0, 0, 0);
+  font-weight: bolder;
+  font-size: 1.25em;
+  z-index: 90;
 }
 
 ul {
-  width: 50%;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  list-style: none;
-}
-li {
-  text-align: center;
-  grid-column: span 4;
-}
-
-router-outlet {
-  position: absolute;
-  grid-column: span 12;
-  align-items: center;
-}
-
-div {
+  display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  grid-column: span 8;
+}
+
+/*The following is for ensuring both the welcome message as well as the nav bar items are within the grid-column range of 1200px max*/
+.menu_bar,
+.welcome_message_container {
+  max-width: 1200px;
+  grid-column: span 2;
+  gap: 100px;
+  text-align: center;
+  font-size: 1em;
+  list-style: none;
+  min-width: fit-content;
+  min-width: -moz-fit-content;
+  margin: 10px auto;
+  padding: 10px 1em;
+  align-items: center;
+}
+.welcome_message_container {
+  grid-column: span 12;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 75%;
+  max-width: 1200px;
+
+  font-family: "Macondo-Regular", cursive;
+}
+
+.welcome_message {
+  width: 100%;
+  float: left;
+  position: absolute;
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 1);
+}
+
+#wm1 {
+  top: 20%;
+  margin-bottom: 20px;
+  float: left;
+}
+
+#wm2 {
+  top: 40%;
+  margin-bottom: 20px;
+  float: left;
+}
+
+#wm3 {
+  top: 60%;
+  float: left;
+}
+/*This #logo styling attempts to fit the logo within the navbar and ensure that it scales whenever zoom in or out and avoids using absolute*/
+#logo {
+  max-width: 100%;
+  grid-column: span 1;
+  position: relative;
+  z-index: 1;
+  object-fit: cover;
+  height: 100%;
+  width: max-content;
+  top: -2%;
+  left: 10%;
+}
+#signin-button {
+  grid-column: span 1;
+}
+
+ul,
+#logo,
+#signin-button {
+  height: 100%;
+  padding: 0 auto;
+  margin: 0 auto;
+}
+
+.component-output {
+  align-items: center;
+  max-width: 1200px;
+  grid-column: span 12;
+  width: 100%;
+}
+router-outlet {
+  width: 100%;
+  padding: auto;
+  margin: auto;
+  grid-column: span 12;
+}
+
+::ng-deep button {
+  display: inline-block;
+  padding: 0.75em 1.5em;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 15px;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049;
 }

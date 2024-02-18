@@ -1,0 +1,23 @@
+<main>
+    <div class="filter_bar">
+        <button>Filter</button>
+        @if ( loggedIn ){
+        <button (click)="toggleForm()" class="formButton">Add Country</button>
+        }
+    </div>
+    <div class="travel_news">
+        <article *ngFor="let country of countries">
+            <h2>{{ country.name }}</h2>
+        </article>
+    </div>
+
+    <div *ngIf="showForm" class="overlay">
+        <form (ngSubmit)="addCountries()">
+            <label for="code">Country Code:</label>
+            <input type="text" id="code" name="code" [(ngModel)]="countryAdded.code" required>]
+            <label for="name">Country Name:</label>
+            <input type="text" id="name" name="name" [(ngModel)]="countryAdded.name" required>]
+            <button type="submit">Add</button>
+        </form>
+    </div>
+</main>

@@ -1,3 +1,47 @@
+<header>
+
+  <nav>
+    <div class="container navbar-container">
+      <img src="../assets/images/logo.svg" id="logo" alt="logo" title="logo image">
+      <ul>
+        <li class="menu_bar"><a href="#" id="Home_button">Home</a></li>
+        <li class="menu_bar"><a routerLink="/packages" routerLinkActive="active"
+            ariaCurrentWhenActive="page">Packages</a></li>
+        <li class="menu_bar"><a href="#">Support</a></li>
+        <li class="menu_bar"><a href="#About_us">About</a></li>
+        <li class="menu_bar"><a href="#contact_form">Contact</a></li>
+
+      </ul>
+      <button id="#signin-button" action="/login" routerLink="/login" routerLinkActive="active"
+        ariaCurrentWhenActive="page">Sign in</button>
+    </div>
+  </nav>
+
+  @if(checkPage()){
+  <div class="header-image ">
+    <div class="welcome_message_container container">
+
+      <h1 class="welcome_message" id="wm1">
+        Venture Beyond, Create Memories,
+      </h1>
+      <h1 class="welcome_message" id="wm2">
+        Your Odyssey Begins-Every Destination Awaits,
+      </h1>
+      <h1 class="welcome_message" id="wm3">
+        Book with Us, Where Stories Unfold.
+      </h1>
+    </div>
+  </div>
+  }
+
+</header>
+
+<div class="component-container component-output">
+  <router-outlet />
+
+</div>
+
+<!--
 <nav class="container">
   <ul class="container">
     <li>
@@ -5,7 +49,7 @@
         Home
       </a>
     </li>
-    @if(isLoggedIn){<li>
+    @if(isLoggedIn()){<li>
       <a routerLink="/add-country" routerLinkActive="active" ariaCurrentWhenActive="page">
         Add Country
       </a>
@@ -18,6 +62,4 @@
     </li>
   </ul>
 </nav>
-<main class="main container">
-  <router-outlet />
-</main>
+-->

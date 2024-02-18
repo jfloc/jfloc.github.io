@@ -9,3 +9,16 @@
 <header>
     {{> navbar}}
 </header>
+<main>
+    packages
+    <div class="filter_bar">
+        <button>Filter</button>
+    </div>
+    <div class="travel_news">
+        {{#each countries}}
+        <article>
+            <h2>{{name}}</h2>
+        </article>
+        {{/each}}
+    </div>
+</main>
