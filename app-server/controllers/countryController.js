@@ -1,3 +1,6 @@
+// Author: Joshua Flores
+// Purpose: Serve the front-end page client side with axios and api call
+
 const axios = require("axios");
 
 async function fetchData() {

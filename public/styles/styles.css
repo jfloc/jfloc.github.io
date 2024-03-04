@@ -131,7 +131,7 @@ ul {
 }
 
 h2 {
-  font-family: "Rosarivo-Regular", sans-serif;
+  font-family: "Rosarivo-Regular";
   font-size: 2em;
   grid-column: span 12;
   padding: 1em 0;

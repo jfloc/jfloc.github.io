@@ -1,23 +1,42 @@
+<!--Sets the file layout according to whether a form is needed as well as if it is in or out of editMode-->
 <main>
     <div class="filter_bar">
         <button>Filter</button>
-        @if ( loggedIn ){
+        @if ( isLoggedIn() ){
         <button (click)="toggleForm()" class="formButton">Add Country</button>
         }
     </div>
-    <div class="travel_news">
+    <div class="countryList">
         <article *ngFor="let country of countries">
-            <h2>{{ country.name }}</h2>
+            <h2>{{ country.name | slice:0:-3 }}</h2>
+            <img src="http://localhost:3000/{{ country.imageUrl }}" alt="Country image" *ngIf="country.imageUrl">
+            <button (click)="saveImageSrc($event)" class="formButton edit-button">edit</button>
         </article>
     </div>
 
     <div *ngIf="showForm" class="overlay">
-        <form (ngSubmit)="addCountries()">
-            <label for="code">Country Code:</label>
-            <input type="text" id="code" name="code" [(ngModel)]="countryAdded.code" required>]
-            <label for="name">Country Name:</label>
-            <input type="text" id="name" name="name" [(ngModel)]="countryAdded.name" required>]
-            <button type="submit">Add</button>
+        <form (ngSubmit)="submitForm()" class="countryAddForm">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <div>
+                    <select *ngIf="!isEditMode" id="text" id="name" name="name" [(ngModel)]="countryAdded.name"
+                        required>
+                        <option *ngFor="let country of countriesList" [value]="country">{{ country }}</option>
+                    </select>
+                    <select *ngIf="isEditMode" id="text" id="name" name="name" [(ngModel)]="editedCountry.name"
+                        required>
+                        <option *ngFor="let country of countriesList" [value]="country">{{ country }}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="image">Image</label>
+                    <input *ngIf="!isEditMode" type="file" id="image" name="image" accept="image/*"
+                        (change)="handleFileInput($event)" required>
+                    <input *ngIf="isEditMode" type="file" id="image" name="image" accept="image/*"
+                        (change)="handleFileInputEdit($event)" required>
+                </div>
+                <button type="submit">Submit</button>
+            </div>
         </form>
     </div>
 </main>

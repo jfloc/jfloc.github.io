@@ -1,3 +1,4 @@
+// This file sets up the passport configuration for LocalStrategy
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const mongoose = require("mongoose");

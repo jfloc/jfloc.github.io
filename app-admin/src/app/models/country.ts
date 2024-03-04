@@ -5,6 +5,9 @@
 // Purpose: Sets up the schema for the databases current data
 
 export interface Country {
+  _id: string;
   code: string;
   name: string;
+  imageUrl: string;
+  imageFile?: File;
 }

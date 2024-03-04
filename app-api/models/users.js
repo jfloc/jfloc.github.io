@@ -23,6 +23,7 @@ userSchema.methods.setPassword = function (password) {
     .toString("hex");
 };
 
+// Ensure that no two documents have the same name or email
 userSchema.pre("validate", async function (next) {
   const existingUser = await this.constructor.findOne({
     $or: [{ email: this.email }, { name: this.name }],
@@ -41,6 +42,7 @@ userSchema.methods.validPassword = function (password) {
   return this.hash === hash;
 };
 
+//Generates the JWT Token
 userSchema.methods.generateJwt = function () {
   const expiry = new Date();
   expiry.setDate(expiry.getDate() + 7);

@@ -1,3 +1,4 @@
+// This ensures the authentication is setup to work for users in the database
 const passport = require("passport");
 const mongoose = require("mongoose");
 const User = mongoose.model("users");

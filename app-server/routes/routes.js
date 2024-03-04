@@ -1,3 +1,6 @@
+// Author: Joshua Flores
+// Purpose: Serve the front-end page client side
+
 const express = require("express");
 const router = express.Router();
 const countryController = require("../controllers/countryController");
