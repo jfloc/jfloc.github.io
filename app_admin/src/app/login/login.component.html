@@ -1,0 +1,28 @@
+<!-- HTML Component -->
+<div class="row">
+  <div class="col-12 col-md-8">
+    <h2>Login</h2>
+    <form #loginForm="ngForm">
+      <div role="alert" *ngIf="formError" class="alert alert-danger">{{ formError }}</div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Enter email address"
+               [(ngModel)]="credentials.email" required name="email">
+        <!-- Add validation error message if needed -->
+        <div *ngIf="loginForm.controls.email.touched && loginForm.controls.email.invalid" class="text-danger">
+          Please enter a valid email address.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="e.g 12+ alphanumerics"
+               [(ngModel)]="credentials.password" required name="password">
+        <!-- Add validation error message if needed -->
+        <div *ngIf="loginForm.controls.password.touched && loginForm.controls.password.invalid" class="text-danger">
+          Please enter a valid password.
+        </div>
+      </div>
+      <button type="button" role="button" class="btn btn-primary" [disabled]="loginForm.invalid" (click)="onLoginSubmit()">Sign In!</button>
+    </form>
+  </div>
+</div>
